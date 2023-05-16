@@ -1,6 +1,6 @@
 import random
 
-
+# Input for player to choose from
 def get_player_move():
     while True:
         player_move = input("Please Select a choice: (rock/paper/scissors: ").lower()
@@ -12,6 +12,7 @@ def get_player_move():
             return player_move
 
 
+# To detremine the winner through each scenario
 def decide_winner(player_move, computer_move):
     if player_move == computer_move:
         return "It's a Tie!"
@@ -25,31 +26,34 @@ def decide_winner(player_move, computer_move):
         return "Computer Wins!"
 
 
+def display_title():
+    print(r"""
+    ██████  ██████  ███████
+    ██  ██  ██  ██  ██
+    ██████  ██████  ███████
+    ██   ██ ██           ██
+    ██   ██ ██      ███████
+    """)
+
+
+def rules_page():
+    print(bcolors.GREEN + "RULES OF THE GAME:")
+    print("THE PLAYER MUST SELECT BETWEEN ROCK PAPER OR SCISSORS")
+    print("THE COMPUTER THEN CHOOSES AT RANDOM")
+    print("THE WINNER IS DECIDED BY 3 ROUNDS")
+
+
+def play_game():
+    valid_moves = ["rock", "paper", "scissors"]
+    total_rounds = 3
+    player_score = 0
+    computer_score = 0
+
+    display_title
+
 
 """
 import random
-
-def get_player_move():
-    while True:
-        player_move = input("Enter your move (rock/paper/scissors): ").lower()
-        if player_move == "":
-            print("Please enter a valid move.")
-        elif player_move not in ["rock", "paper", "scissors"]:
-            print("Invalid move. Please try again.")
-        else:
-            return player_move
-
-def determine_winner(player_move, computer_move):
-    if player_move == computer_move:
-        return "It's a tie!"
-    elif (
-        (player_move == "rock" and computer_move == "scissors") or
-        (player_move == "paper" and computer_move == "rock") or
-        (player_move == "scissors" and computer_move == "paper")
-    ):
-        return "Player wins!"
-    else:
-        return "Computer wins!"
 
 def play_game():
     valid_moves = ["rock", "paper", "scissors"]
