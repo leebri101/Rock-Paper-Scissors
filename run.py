@@ -1,4 +1,6 @@
+from classes.game import colors
 import random
+
 
 # Input for player to choose from
 def get_player_move():
@@ -37,8 +39,8 @@ def display_title():
 
 
 def rules_page():
-    print(bcolors.GREEN + "RULES OF THE GAME:")
-    print("THE PLAYER MUST SELECT BETWEEN ROCK PAPER OR SCISSORS")
+    print(colors.GREEN + "RULES OF THE GAME:")
+    print(colors"THE PLAYER MUST SELECT BETWEEN ROCK PAPER OR SCISSORS")
     print("THE COMPUTER THEN CHOOSES AT RANDOM")
     print("THE WINNER IS DECIDED BY 3 ROUNDS")
     print()
