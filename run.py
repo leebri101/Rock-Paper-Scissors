@@ -41,6 +41,7 @@ def rules_page():
     print("THE PLAYER MUST SELECT BETWEEN ROCK PAPER OR SCISSORS")
     print("THE COMPUTER THEN CHOOSES AT RANDOM")
     print("THE WINNER IS DECIDED BY 3 ROUNDS")
+    print()
 
 
 def play_game():

@@ -3,7 +3,7 @@ import pprint
 
 
 # Colors and styling
-class bcolors:
+class colors:
     HEADER = '\033[95m'
     BLUE = '\033[94m'
     WARNING = '\033[93m'
