@@ -39,10 +39,10 @@ def display_title():
 
 
 def rules_page():
-    print(colors.GREEN + "RULES OF THE GAME:")
-    print(colors"THE PLAYER MUST SELECT BETWEEN ROCK PAPER OR SCISSORS")
-    print("THE COMPUTER THEN CHOOSES AT RANDOM")
-    print("THE WINNER IS DECIDED BY 3 ROUNDS")
+    print("\n" + colors.GREEN + "RULES OF THE GAME:")
+    print(colors.BLUE + "PLAYER MUST SELECT BETWEEN ROCK PAPER OR SCISSORS")
+    print(colors.BLUE + "THE COMPUTER THEN CHOOSES AT RANDOM")
+    print(colors.RED + "THE WINNER IS DECIDED BY 3 ROUNDS")
     print()
 
 
@@ -52,19 +52,14 @@ def play_game():
     player_score = 0
     computer_score = 0
 
-    display_title
+    display_title()
+    rules_page()
+
+    while True:
+        for round in range(1, total_rounds + 1):
 
 
 """
-import random
-
-def play_game():
-    valid_moves = ["rock", "paper", "scissors"]
-    total_rounds = 3
-    player_score = 0
-    computer_score = 0
-
-    print("Welcome to the Rock-Paper-Scissors Game!")
 
     while True:
         for round in range(1, total_rounds + 1):
