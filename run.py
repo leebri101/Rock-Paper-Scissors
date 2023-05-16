@@ -26,7 +26,6 @@ def decide_winner(player_move, computer_move):
 
 
 def display_title():
-    print(f"{colors.WHITE}{colors.BOLD}================================")
     print(colors.CYAN)
     print(r"""
     █████    ██████   ██████
@@ -46,6 +45,7 @@ def display_rules():
     print(f"{colors.CYAN}Computer then chooses at random.{colors.END}")
     print("")
     print(f"{colors.GREEN}First to win 2 out of 3 wins.{colors.END}")
+    print("You can also play a single game if you wish")
     print(f"{colors.WHITE}{colors.BOLD}================================")
 
 
@@ -56,7 +56,7 @@ def play_game():
 
     display_title()
     print("\n" + "Welcome to RPS a simple rock paper scissors game")
-    print("")
+
     input("Press Enter to view rules")
     display_rules()
 
@@ -73,10 +73,12 @@ def play_game():
 
         if winner == "player":
             player_score += 1
-            print(f"\n{colors.BLUE}Player wins{colors.END}")
+            print(f"\n{colors.BLUE}Player wins this round!{colors.END}")
         elif winner == "computer":
             computer_score += 1
-            print(f"\n{colors.RED}Computer wins{colors.END}")
+            print(f"\n{colors.RED}Computer wins this round!{colors.END}")
+        else:
+            print(f"\n{colors.BOLD}Tie! Replay Round{colors.END}")
 
         print(f"\n{colors.BLUE}Player score: {player_score}{colors.END}")
         print(f"\n{colors.RED}Computer score: {computer_score}{colors.END}")
@@ -87,8 +89,24 @@ def play_game():
 def display_winner(player_score, computer_score):
     if player_score > computer_score:
         print("Player Wins")
+        print(colors.BLUE)
+        print(r"""
+        ██    ██  ██████  ██    ██   ██     ██ ██ ███    ██
+         ██  ██  ██    ██ ██    ██   ██     ██ ██ ████   ██
+          ████   ██    ██ ██    ██   ██  █  ██ ██ ██ ██  ██
+           ██    ██    ██ ██    ██   ██ ███ ██ ██ ██  ██ ██
+           ██     ██████   ██████     ███ ███  ██ ██   ████
+        """)
     else:
         print("Computer Wins")
+        print(colors.RED)
+        print(r"""
+        ██    ██  ██████  ██    ██   ██       ██████  ███████ ██████
+         ██  ██  ██    ██ ██    ██   ██      ██    ██ ██      ██
+          ████   ██    ██ ██    ██   ██      ██    ██ ███████ █████
+           ██    ██    ██ ██    ██   ██      ██    ██      ██ ██
+           ██     ██████   ██████    ███████  ██████  ███████ ██████
+        """)
 
 
 def replay_game():
@@ -96,8 +114,10 @@ def replay_game():
         play_again = input("\n" + "Do you want to play again? (y/n): ").lower()
         if play_again == "y":
             player_score, computer_score = play_game()
-            print("\nFinal Scores:")
+            print("Final Scores:")
+            print("")
             print("Player score:", player_score)
+            print("")
             print("Computer score:", computer_score)
             display_winner(player_score, computer_score)
             break
