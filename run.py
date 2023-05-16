@@ -10,7 +10,21 @@ def get_player_move():
             print("Invalid choice. Please try again.")
         else:
             return player_move
-    
+
+
+def decide_winner(player_move, computer_move):
+    if player_move == computer_move:
+        return "It's a Tie!"
+    elif (
+        (player_move == "rock" and computer_move == "scissors") or
+        (player_move == "paper" and computer_move == "rock") or 
+        (player_move == "scissors" and computer_move == "paper")
+    ):
+        return "Player Wins!"
+    else:
+        return "Computer Wins!"
+
+
 
 """
 import random
