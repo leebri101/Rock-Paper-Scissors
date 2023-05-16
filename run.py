@@ -14,7 +14,7 @@ def get_player_move():
             return player_move
 
 
-# To detremine the winner through each scenario
+# To determine the winner through each scenario
 def decide_winner(player_move, computer_move):
     if player_move == computer_move:
         return "It's a Tie!"
@@ -39,10 +39,11 @@ def display_title():
 
 
 def rules_page():
-    print("\n" + colors.GREEN + "RULES OF THE GAME:")
-    print(colors.BLUE + colors.BOLD + "PLAYER MUST SELECT BETWEEN ROCK PAPER OR SCISSORS")
-    print(colors.BLUE + colors.BOLD + "THE COMPUTER THEN CHOOSES AT RANDOM")
-    print(colors.RED + colors.BOLD + "THE WINNER IS DECIDED BY 3 ROUNDS")
+    print(f"{colors.GREEN}{colors.BOLD}RULES OF THE GAME: {colors.END}")
+    print("")
+    print(f"{colors.BLUE}{colors.BOLD}PLAYER MUST SELECT BETWEEN ROCK PAPER OR SCISSORS{colors.END}")
+    print(colors.BLUE + colors.BOLD + "THE COMPUTER THEN CHOOSES AT RANDOM" + colors.END)
+    print(colors.RED + colors.BOLD + "THE WINNER IS DECIDED BY 3 ROUNDS" + colors.END)
     print()
 
 
@@ -55,67 +56,62 @@ def play_game():
     display_title()
     rules_page()
 
-    while True:
-        for round in range(1, total_rounds + 1):
-            print(f"Round {round}:")
-            player_move = get_player_move()
+    while player_score < 2 and computer_score < 2:
+        player_move = get_player_move()
 
-            # Random generation of computer's move
-            computer_move = random.choice(valid_moves)
+        # Random generation of computer's move
+        computer_move = random.choice(valid_moves)
 
-            print(f"{colors.BLUE}Player Chose: {player_move}{colors.END}")
-            print(f"{colors.RED}Computer Chose: {computer_move}{colors.END}")
+        print(f"\n{colors.BLUE}Player Chose: {player_move}{colors.END}")
+        print("")
+        print(f"\n{colors.RED}Computer Chose: {computer_move}{colors.END}")
 
-            result = decide_winner(player_move, computer_move)
-            print(result)
+        winner = decide_winner(player_move, computer_move)
+        print(result)
 
-            if result == "Player Wins!":
-                player_score += 1
-            elif result == "Computer Wins...":
-                computer_score += 1
-        
-        print(f"{colors.CYAN}{colors.BOLD}FINAL SCORES:")
-        print(f"{colors.BLUE}Player Score: {player_score}{colors.END}")
-        print(f"{colors.RED}Computer Score: {computer_score}{colors.END}")
-
-        if player_score > computer_score:
-            print(r"""
-            ██╗   ██╗ ██████╗ ██╗   ██╗    ██╗    ██╗██╗███╗   ██╗██╗██╗
-            ╚██╗ ██╔╝██╔═══██╗██║   ██║    ██║    ██║██║████╗  ██║██║██║
-             ╚████╔╝ ██║   ██║██║   ██║    ██║ █╗ ██║██║██╔██╗ ██║██║██║
-              ╚██╔╝  ██║   ██║██║   ██║    ██║███╗██║██║██║╚██╗██║╚═╝╚═╝
-               ██║   ╚██████╔╝╚██████╔╝    ╚███╔███╔╝██║██║ ╚████║██╗██╗
-               ╚═╝    ╚═════╝  ╚═════╝      ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝╚═╝╚═╝
-            """)
-        elif player_score < computer_score:
-            print(r"""
-            ██╗   ██╗ ██████╗ ██╗   ██╗   ██╗      ██████╗ ███████╗███████╗
-            ╚██╗ ██╔╝██╔═══██╗██║   ██║   ██║     ██╔═══██╗██╔════╝██╔════╝
-             ╚████╔╝ ██║   ██║██║   ██║   ██║     ██║   ██║███████╗█████╗
-              ╚██╔╝  ██║   ██║██║   ██║   ██║     ██║   ██║╚════██║██╔══╝        
-               ██║   ╚██████╔╝╚██████╔╝   ███████╗╚██████╔╝███████║███████╗
-               ╚═╝    ╚═════╝  ╚═════╝    ╚══════╝ ╚═════╝ ╚══════╝╚══════╝
-            """)
+        if winner == "Player":
+            player_score += 1
+            print(f"\n{colors.BLUE}{colors.BOLD}Player wins this round!{colors.END}")
+        elif winner == "Computer":
+            computer_score += 1
+            print(f"\n{colors.RED}{colors.BOLD}Computer wins this round!{colors.END}")
         else:
-            print(r"""
-            ████████╗██╗███████╗
-            ╚══██╔══╝██║██╔════╝
-               ██║   ██║█████╗
-               ██║   ██║██╔══╝
-               ██║   ██║███████╗██╗██╗██╗██╗
-               ╚═╝   ╚═╝╚══════╝╚═╝╚═╝╚═╝╚═╝
-            """)
-        
+            Print(f"\n{colors.CYAN}{colors.BOLD}It's a Tie the round is replayed{colors.END}")
+
+    
+    print(f"\n{colors.CYAN}{colors.BOLD}FINAL SCORES: {colors.END}")
+    print(f"\n{colors.BLUE}Player Score: {player_score}{colors.END}")
+    print(f"\n{colors.RED}Computer Score: {computer_score}{colors.END}")
+
+    if player_score > computer_score:
+        print(r"""
+        ██╗   ██╗ ██████╗ ██╗   ██╗    ██╗    ██╗██╗███╗   ██╗██╗██╗
+        ╚██╗ ██╔╝██╔═══██╗██║   ██║    ██║    ██║██║████╗  ██║██║██║
+         ╚████╔╝ ██║   ██║██║   ██║    ██║ █╗ ██║██║██╔██╗ ██║██║██║
+          ╚██╔╝  ██║   ██║██║   ██║    ██║███╗██║██║██║╚██╗██║╚═╝╚═╝
+           ██║   ╚██████╔╝╚██████╔╝    ╚███╔███╔╝██║██║ ╚████║██╗██╗
+           ╚═╝    ╚═════╝  ╚═════╝      ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝╚═╝╚═╝
+        """)
+    else:
+        print(r"""
+        ██╗   ██╗ ██████╗ ██╗   ██╗   ██╗      ██████╗ ███████╗███████╗
+        ╚██╗ ██╔╝██╔═══██╗██║   ██║   ██║     ██╔═══██╗██╔════╝██╔════╝
+         ╚████╔╝ ██║   ██║██║   ██║   ██║     ██║   ██║███████╗█████╗
+          ╚██╔╝  ██║   ██║██║   ██║   ██║     ██║   ██║╚════██║██╔══╝        
+           ██║   ╚██████╔╝╚██████╔╝   ███████╗╚██████╔╝███████║███████╗
+           ╚═╝    ╚═════╝  ╚═════╝    ╚══════╝ ╚═════╝ ╚══════╝╚══════╝
+        """)
+
+    play_again = input("Do you want to play again? (y/n): ").lower()
+    while play_again not in ["y", "n"]:
+        print("Invalid input. Please enter 'y' or 'no' .")
         play_again = input("Do you want to play again? (y/n): ").lower()
-        while play_again not in ["y", "n"]:
-            print("Invalid input. Please enter 'y' or 'no' .")
-            play_again = input("Do you want to play again? (y/n): ").lower()
 
-        if play_again == "y":
-            player_score = 0
-            computer_score = 0
-            continue
-        else:
-            break
+    if play_again == "y":
+        player_score = 0
+        computer_score = 0
+        continue
+    else:
+        break
 
 play_game()
