@@ -105,33 +105,13 @@ def play_game():
                ██║   ██║███████╗██╗██╗██╗██╗
                ╚═╝   ╚═╝╚══════╝╚═╝╚═╝╚═╝╚═╝
             """)
+        
+        play_again = input("Do you want to play again? (y/n): ").lower()
+        while play_again not in ["y", "n"]:
+            print("Invalid input. Please enter 'y' or 'no' .")
+            play_again = input("Do you want to play again? (y/n): ").lower()
 
-
-
-"""
-
-            if result == "Player wins!":
-                player_score += 1
-            elif result == "Computer wins!":
-                computer_score += 1
-
-        print("Final Scores:")
-        print("Player score:", player_score)
-        print("Computer score:", computer_score)
-
-        if player_score > computer_score:
-            print("Congratulations! Player wins the game!")
-        elif player_score < computer_score:
-            print("Computer wins the game!")
-        else:
-            print("It's a tie!")
-
-        play_again = input("Do you want to play again? (yes/no): ").lower()
-        while play_again not in ["yes", "no"]:
-            print("Invalid input. Please enter 'yes' or 'no'.")
-            play_again = input("Do you want to play again? (yes/no): ").lower()
-
-        if play_again == "yes":
+        if play_again == "y":
             player_score = 0
             computer_score = 0
             continue
