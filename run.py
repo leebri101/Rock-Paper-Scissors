@@ -76,7 +76,7 @@ def play_game():
             computer_score += 1
             print(f"\n{colors.RED}{colors.BOLD}Computer wins this round!{colors.END}")
         else:
-            Print(f"\n{colors.CYAN}{colors.BOLD}It's a Tie the round is replayed{colors.END}")
+            Print(f"\n{colors.CYAN}{colors.BOLD}It's a Tie, round is replayed{colors.END}")
 
     
     print(f"\n{colors.CYAN}{colors.BOLD}FINAL SCORES: {colors.END}")
