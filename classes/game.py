@@ -5,7 +5,7 @@ import pprint
 # Colors and styling
 class bcolors:
     HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
+    BLUE = '\033[94m'
     WARNING = '\033[93m'
     GREEN = '\033[92m'
     RED = '\033[91m'
