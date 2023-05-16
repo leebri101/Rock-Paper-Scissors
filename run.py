@@ -7,10 +7,24 @@ t = ["Rock", "Paper", "Scissors"]
 computer = t[randint(0, 2)]
 
 #Sets Palyer to false
-#set player to False
 player = False
 
 while player == False:
+    player = input("Choose either: Rock, Paper, Scissors?")
+    if player == computer:
+        print("It's a tie!!")
+    elif player == "Rock":
+        if computer == "Paper":
+            print("Paper Covers Rock", computer, "You lose!", player)
+        else:
+            print("Rock smashes Scissors", computer, "You win!", player)
+    elif player == "Paper":
+        if computer == "Scissors":
+            
+
+
+
+
 #set player to True
     player = input("Rock, Paper, Scissors?")
     if player == computer:
