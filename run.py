@@ -15,15 +15,20 @@ while player == False:
         print("It's a Tie!!")
     elif player == "Rock":
         if computer == "Paper":
-            print("You Lose!", computer, "Paper Covers Rock", player)
+            print("You Lose...", computer, "Paper Covers Rock", player)
         else:
             print("You Win!", player, "Rock smashes Scissors", computer)
     elif player == "Paper":
         if computer == "Scissors":
-            print("You Lose", computer, "Scissors cuts Paper", player)
+            print("You Lose...", computer, "Scissors cuts Paper", player)
         else:
             print("You Win!", player, "Rock smashes Scissors", computer)
-            
+    elif player == "Scissors":
+        if computer == "Rock":
+            print("You Lose...", computer, "Rock smashes Scissors", player)
+        else:
+            print("You win!", player, "Scissors cuts Paper", computer)
+
 
 
 
