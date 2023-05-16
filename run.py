@@ -89,14 +89,6 @@ def display_winner(player_score, computer_score):
         print("Player Wins")
     else:
         print("Computer Wins")
-        print(colors.RED)
-        print(r"""
-        ████     ████   █       █████  ████  █    █ █████  ████
-        █       █    █ ██    ██ █     █    █ █    █ █      █   █
-        █  ██   ██████ █ █  █ █ ███   █    █ █    █ ███    ████
-        █    █  █    █ █  ██  █ █     █    █  █  █  █      █   █
-        ████    █    █ █      █ ████   ████    ██   █████  █    █
-        """)
 
 
 def replay_game():
