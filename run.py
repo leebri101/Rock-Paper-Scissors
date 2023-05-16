@@ -50,47 +50,45 @@ def play_game():
     display_rules()
 
     while player_score < 2 and computer_score < 2:
-        print("\n" + colors.CYAN + colors.BOLD ">>>---New Round---<<<")
+        print("\n" + colors.CYAN + colors.BOLD + ">>>---New Round---<<<" + colors.END)
         player_move = get_player_move()
         computer_move = random.choice(valid_moves)
 
         print("\n" + colors.BLUE + colors.BOLD + "player chose:", player_move)
-        print("\n" + colors.RED + colors.BOLD "Computer chose:", computer_move)
+        print("\n" + colors.RED + colors.BOLD + "Computer chose:", computer_move)
 
         winner = decide_winner(player_move, computer_move)
 
         if winner == "player":
             player_score += 1
-            print("\n" + colors.BLUE + colors.BOLD "Player wins this round!")
+            print("\n" + colors.BLUE + colors.BOLD + "Player wins this round!" + colors.END)
         elif winner == "computer":
             computer_score += 1
-            print("\n" + colors.RED + colors.BOLD "Computer wins this round!")
+            print("\n" + colors.RED + colors.BOLD + "Computer wins this round!" + colors.END)
         else:
-            print("\n" + colors.WHITE + colors.BOLD "It's a tie! The round will be replayed.")
+            print("\n" + colors.WHITE + colors.BOLD + "Tie! Round will be replayed." + colors.END)
 
-        print("\n" + colors.BLUE + colors.BOLD "Player score:", player_score)
-        print("\n" + colors.RED + colors.BOLD "Computer score:", computer_score)
+        print("\n" + colors.BLUE + colors.BOLD + "Player score:", player_score, colors.END)
+        print("\n" + colors.RED + colors.BOLD + "Computer score:", computer_score, colors.END)
 
     return player_score, computer_score
 
 def display_winner(player_score, computer_score):
     if player_score > computer_score:
         print(r"""
-        ██╗   ██╗ ██████╗ ██╗   ██╗    ██╗    ██╗██╗███╗   ██╗██╗██╗
-        ╚██╗ ██╔╝██╔═══██╗██║   ██║    ██║    ██║██║████╗  ██║██║██║
-         ╚████╔╝ ██║   ██║██║   ██║    ██║ █╗ ██║██║██╔██╗ ██║██║██║
-          ╚██╔╝  ██║   ██║██║   ██║    ██║███╗██║██║██║╚██╗██║╚═╝╚═╝
-           ██║   ╚██████╔╝╚██████╔╝    ╚███╔███╔╝██║██║ ╚████║██╗██╗
-           ╚═╝    ╚═════╝  ╚═════╝      ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝╚═╝╚═╝
+       ██    ██  ██████  ██    ██   ██     ██ ██ ███    ██ ██ ██ 
+        ██  ██  ██    ██ ██    ██   ██     ██ ██ ████   ██ ██ ██ 
+         ████   ██    ██ ██    ██   ██  █  ██ ██ ██ ██  ██ ██ ██ 
+          ██    ██    ██ ██    ██   ██ ███ ██ ██ ██  ██ ██       
+          ██     ██████   ██████     ███ ███  ██ ██   ████ ██ ██                                                 
         """)
     else:
         print(r"""
-        ██╗   ██╗ ██████╗ ██╗   ██╗   ██╗      ██████╗ ███████╗███████╗
-        ╚██╗ ██╔╝██╔═══██╗██║   ██║   ██║     ██╔═══██╗██╔════╝██╔════╝
-         ╚████╔╝ ██║   ██║██║   ██║   ██║     ██║   ██║███████╗█████╗
-          ╚██╔╝  ██║   ██║██║   ██║   ██║     ██║   ██║╚════██║██╔══╝        
-           ██║   ╚██████╔╝╚██████╔╝   ███████╗╚██████╔╝███████║███████╗
-           ╚═╝    ╚═════╝  ╚═════╝    ╚══════╝ ╚═════╝ ╚══════╝╚══════╝
+        ██    ██  ██████  ██    ██   ██       ██████  ███████ ███████ 
+         ██  ██  ██    ██ ██    ██   ██      ██    ██ ██      ██      
+          ████   ██    ██ ██    ██   ██      ██    ██ ███████ █████   
+           ██    ██    ██ ██    ██   ██      ██    ██      ██ ██      
+           ██     ██████   ██████    ███████  ██████  ███████ ███████ 
         """)
 
 def replay_game():
@@ -101,6 +99,7 @@ def replay_game():
             print("\nFinal Scores:")
             print("Player score:", player_score)
             print("Computer score:", computer_score)
+            display_winner(player_score, computer_score)
         elif play_again == "n":
             print("\nThanks for playing! Goodbye.")
             break
