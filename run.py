@@ -4,7 +4,7 @@ import random
 
 def get_player_move():
     while True:
-        player_move = input("Please select (rock/paper/scissors): ").lower()
+        player_move = input("Please select(rock/paper/scissors): ").lower()
 
         if player_move not in ["rock", "paper", "scissors"]:
             print("Invalid choice. Please try again.")
@@ -26,6 +26,7 @@ def decide_winner(player_move, computer_move):
 
 
 def display_title():
+    print(f"{colors.WHITE}{colors.BOLD}================================")
     print(colors.CYAN)
     print(r"""
     █████    ██████   ██████
@@ -54,10 +55,13 @@ def play_game():
     computer_score = 0
 
     display_title()
+    print("\n" + "Welcome to RPS a simple rock paper scissors game")
+    print("")
+    input("Press Enter to view rules")
     display_rules()
 
+    input("Press Enter to start the game")
     while player_score < 2 and computer_score < 2:
-        print(f"{colors.CYAN}{colors.BOLD}>>>---New Round---<<<{colors.END}")
         player_move = get_player_move()
         computer_move = random.choice(valid_moves)
 
@@ -69,12 +73,10 @@ def play_game():
 
         if winner == "player":
             player_score += 1
-            print(f"\n{colors.BLUE}Player wins this round!{colors.END}")
+            print(f"\n{colors.BLUE}Player wins{colors.END}")
         elif winner == "computer":
             computer_score += 1
-            print(f"\n{colors.RED}Computer wins this round!{colors.END}")
-        else:
-            print(f"\n{colors.BOLD}Tie! Replay Round{colors.END}")
+            print(f"\n{colors.RED}Computer wins{colors.END}")
 
         print(f"\n{colors.BLUE}Player score: {player_score}{colors.END}")
         print(f"\n{colors.RED}Computer score: {computer_score}{colors.END}")
@@ -87,6 +89,14 @@ def display_winner(player_score, computer_score):
         print("Player Wins")
     else:
         print("Computer Wins")
+        print(colors.RED)
+        print(r"""
+        ████     ████   █       █████  ████  █    █ █████  ████
+        █       █    █ ██    ██ █     █    █ █    █ █      █   █
+        █  ██   ██████ █ █  █ █ ███   █    █ █    █ ███    ████
+        █    █  █    █ █  ██  █ █     █    █  █  █  █      █   █
+        ████    █    █ █      █ ████   ████    ██   █████  █    █
+        """)
 
 
 def replay_game():
@@ -108,7 +118,7 @@ def replay_game():
             █    █  █    █ █  ██  █ █     █    █  █  █  █      █   █
              ████   █    █ █      █ ████   ████    ██   █████  █    █
             """)
-            print("-------THANKS FOR PLAYING-------")
+            print(">>>>>>>>>-------THANKS FOR PLAYING-------<<<<<<<<<")
             break
         else:
             print("Invalid input. Please enter 'y' or 'n'.")
