@@ -200,10 +200,6 @@ The second project was a very interesting but difficult challenge, which tested 
 * The project theme was inspired by the Code Institute's coding project called Love Maths. I have tried to change as much as possible but there may be some similarties within the codes.
 * I have used W3Schools for a basic understanding and learning process for knowing JavaScript a bit better, and for general basic coding references and as general encyclopedia for any code related issues or ideas.
 
-### **Content:**
-* All icons that were used throughout the project are sourced from [Font-Awesome](https://fontawesome.com/)
-* All fonts used have been imported from - [Google-Fonts](https://fonts.google.com/)
-
 ### **Media:**
 * https://www.lucidchart.com/pages/
 * https://www.ascii-code.com/219
