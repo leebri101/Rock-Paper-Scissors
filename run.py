@@ -5,7 +5,7 @@ import random
 # Input for player to choose from
 def get_player_move():
     while True:
-        player_move = input("Please Select a choice: (rock/paper/scissors: ").lower()
+        player_move = input("Please Select a choice: (rock/paper/scissors): ").lower()
         if player_move == "":
             print("Please enter an valid choice")
         elif player_move not in ["rock", "paper", "scissors"]:
@@ -17,7 +17,7 @@ def get_player_move():
 # To determine the winner through each scenario
 def decide_winner(player_move, computer_move):
     if player_move == computer_move:
-        return "It's a Tie!"
+        return "Tie!"
     elif (
         (player_move == "rock" and computer_move == "scissors") or
         (player_move == "paper" and computer_move == "rock") or
@@ -49,7 +49,6 @@ def rules_page():
 
 def play_game():
     valid_moves = ["rock", "paper", "scissors"]
-    total_rounds = 3
     player_score = 0
     computer_score = 0
 
@@ -57,17 +56,19 @@ def play_game():
     rules_page()
 
     while player_score < 2 and computer_score < 2:
+        print(f"\n{colors.BOLD}>>>----New Round----<<<")
+        print(f"{colors.WHITE}{colors.BOLD}================================")
         player_move = get_player_move()
 
         # Random generation of computer's move
         computer_move = random.choice(valid_moves)
 
-        print(f"\n{colors.BLUE}Player Chose: {player_move}{colors.END}")
-        print("")
-        print(f"\n{colors.RED}Computer Chose: {computer_move}{colors.END}")
+        print(f"{colors.BLUE}Player Chose: {player_move}{colors.END}")
+        print("\n")
+        print(f"{colors.RED}Computer Chose: {computer_move}{colors.END}")
 
         winner = decide_winner(player_move, computer_move)
-        print(result)
+        print(winner)
 
         if winner == "Player":
             player_score += 1
@@ -76,14 +77,13 @@ def play_game():
             computer_score += 1
             print(f"\n{colors.RED}{colors.BOLD}Computer wins this round!{colors.END}")
         else:
-            Print(f"\n{colors.CYAN}{colors.BOLD}It's a Tie, round is replayed{colors.END}")
+            print(f"\n{colors.CYAN}{colors.BOLD}It's a Tie, round is replayed{colors.END}")
 
-    
-    print(f"\n{colors.CYAN}{colors.BOLD}FINAL SCORES: {colors.END}")
-    print(f"\n{colors.BLUE}Player Score: {player_score}{colors.END}")
-    print(f"\n{colors.RED}Computer Score: {computer_score}{colors.END}")
+        print(f"\n{colors.BLUE}Player Score: {player_score}{colors.END}")
+        print(f"\n{colors.RED}Computer Score: {computer_score}{colors.END}")
 
     if player_score > computer_score:
+        print(f"{colors.WHITE}{colors.BOLD}================================")
         print(r"""
         ██╗   ██╗ ██████╗ ██╗   ██╗    ██╗    ██╗██╗███╗   ██╗██╗██╗
         ╚██╗ ██╔╝██╔═══██╗██║   ██║    ██║    ██║██║████╗  ██║██║██║
@@ -92,7 +92,9 @@ def play_game():
            ██║   ╚██████╔╝╚██████╔╝    ╚███╔███╔╝██║██║ ╚████║██╗██╗
            ╚═╝    ╚═════╝  ╚═════╝      ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝╚═╝╚═╝
         """)
+        print(f"{colors.WHITE}{colors.BOLD}================================")
     else:
+        print(f"{colors.WHITE}{colors.BOLD}================================")
         print(r"""
         ██╗   ██╗ ██████╗ ██╗   ██╗   ██╗      ██████╗ ███████╗███████╗
         ╚██╗ ██╔╝██╔═══██╗██║   ██║   ██║     ██╔═══██╗██╔════╝██╔════╝
@@ -101,17 +103,18 @@ def play_game():
            ██║   ╚██████╔╝╚██████╔╝   ███████╗╚██████╔╝███████║███████╗
            ╚═╝    ╚═════╝  ╚═════╝    ╚══════╝ ╚═════╝ ╚══════╝╚══════╝
         """)
+        print(f"{colors.WHITE}{colors.BOLD}================================")
 
-    play_again = input("Do you want to play again? (y/n): ").lower()
-    while play_again not in ["y", "n"]:
-        print("Invalid input. Please enter 'y' or 'no' .")
+def replay_game():
+    while True:
         play_again = input("Do you want to play again? (y/n): ").lower()
+        if play_again == "y":
+            play_game()
+        elif play_again == "n":
+            print("\nThanks for playing")
+            break
+        else:
+            print("Invalid Input Please enter 'y' or 'n'. ")
+            print(f"{colors.WHITE}{colors.BOLD}================================")
 
-    if play_again == "y":
-        player_score = 0
-        computer_score = 0
-        continue
-    else:
-        break
-
-play_game()
+replay_game()
