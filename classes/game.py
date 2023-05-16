@@ -12,5 +12,5 @@ class colors:
     WHITE = '\033[37m'
     CYAN = '\033[36m'
     MAGENTA = '\033[35m'
-    ENDC = '\033[0m'
+    END = '\033[0m'
     BOLD = '\033[1m'
