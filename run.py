@@ -1,13 +1,16 @@
 from classes.game import colors
 import random
 
+
 def get_player_move():
     while True:
-        player_move = input("Please select a choice (rock/paper/scissors): ").lower()
+        player_move = input("Please select (rock/paper/scissors): ").lower()
+
         if player_move not in ["rock", "paper", "scissors"]:
             print("Invalid choice. Please try again.")
         else:
             return player_move
+
 
 def decide_winner(player_move, computer_move):
     if player_move == computer_move:
@@ -21,6 +24,7 @@ def decide_winner(player_move, computer_move):
     else:
         return "computer"
 
+
 def display_title():
     print(r"""
     ██████  ██████  ███████
@@ -30,16 +34,18 @@ def display_title():
     ██   ██ ██      ███████
     """)
 
+
 def display_rules():
     print(f"{colors.WHITE}{colors.BOLD}================================")
-    print("\n" + colors.GREEN + colors.BOLD + "RULES OF THE GAME:" + colors.END)
+    print(f"\n{colors.GREEN}{colors.BOLD} RULES: {colors.END}")
     print("")
-    print(colors.CYAN + colors.BOLD + "You must choose Rock, Paper, or Scissors." + colors.END)
+    print(f"{colors.CYAN}Choose Rock, Paper, or Scissors.{colors.END}")
     print("")
-    print(colors.CYAN + colors.BOLD + "The computer then chooses at random." + colors.END)
+    print(f"{colors.CYAN}Computer then chooses at random.{colors.END}")
     print("")
-    print(colors.GREEN + colors.BOLD + "The first player to win 2 out of 3 rounds wins the game." + colors.END)
+    print(f"{colors.GREEN}First to win 2 out of 3 wins.{colors.END}")
     print(f"{colors.WHITE}{colors.BOLD}================================")
+
 
 def play_game():
     valid_moves = ["rock", "paper", "scissors"]
@@ -50,46 +56,49 @@ def play_game():
     display_rules()
 
     while player_score < 2 and computer_score < 2:
-        print("\n" + colors.CYAN + colors.BOLD + ">>>---New Round---<<<" + colors.END)
+        print(f"{colors.CYAN}{colors.BOLD}>>>---New Round---<<<{colors.END}")
         player_move = get_player_move()
         computer_move = random.choice(valid_moves)
 
-        print("\n" + colors.BLUE + colors.BOLD + "player chose:", player_move)
-        print("\n" + colors.RED + colors.BOLD + "Computer chose:", computer_move)
+        print(f"{colors.BLUE}{colors.BOLD}Player chose: {player_move}")
+        print("")
+        print(f"\n{colors.RED}{colors.BOLD}Computer chose: {computer_move}")
 
         winner = decide_winner(player_move, computer_move)
 
         if winner == "player":
             player_score += 1
-            print("\n" + colors.BLUE + colors.BOLD + "Player wins this round!" + colors.END)
+            print(f"\n{colors.BLUE}Player wins this round!{colors.END}")
         elif winner == "computer":
             computer_score += 1
-            print("\n" + colors.RED + colors.BOLD + "Computer wins this round!" + colors.END)
+            print(f"\n{colors.RED}Computer wins this round!{colors.END}")
         else:
-            print("\n" + colors.WHITE + colors.BOLD + "Tie! Round will be replayed." + colors.END)
+            print(f"\n{colors.BOLD}Tie! Replay Round{colors.END}")
 
-        print("\n" + colors.BLUE + colors.BOLD + "Player score:", player_score, colors.END)
-        print("\n" + colors.RED + colors.BOLD + "Computer score:", computer_score, colors.END)
+        print(f"\n{colors.BLUE}Player score: {player_score}{colors.END}")
+        print(f"\n{colors.RED}Computer score: {computer_score}{colors.END}")
 
     return player_score, computer_score
+
 
 def display_winner(player_score, computer_score):
     if player_score > computer_score:
         print(r"""
-       ██    ██  ██████  ██    ██   ██     ██ ██ ███    ██ ██ ██ 
-        ██  ██  ██    ██ ██    ██   ██     ██ ██ ████   ██ ██ ██ 
-         ████   ██    ██ ██    ██   ██  █  ██ ██ ██ ██  ██ ██ ██ 
-          ██    ██    ██ ██    ██   ██ ███ ██ ██ ██  ██ ██       
-          ██     ██████   ██████     ███ ███  ██ ██   ████ ██ ██                                                 
+       ██    ██  ██████  ██    ██   ██     ██ ██ ███    ██ ██ ██
+        ██  ██  ██    ██ ██    ██   ██     ██ ██ ████   ██ ██ ██
+         ████   ██    ██ ██    ██   ██  █  ██ ██ ██ ██  ██ ██ ██
+          ██    ██    ██ ██    ██   ██ ███ ██ ██ ██  ██ ██
+          ██     ██████   ██████     ███ ███  ██ ██   ████ ██ ██
         """)
     else:
         print(r"""
-        ██    ██  ██████  ██    ██   ██       ██████  ███████ ███████ 
-         ██  ██  ██    ██ ██    ██   ██      ██    ██ ██      ██      
-          ████   ██    ██ ██    ██   ██      ██    ██ ███████ █████   
-           ██    ██    ██ ██    ██   ██      ██    ██      ██ ██      
-           ██     ██████   ██████    ███████  ██████  ███████ ███████ 
+        ██    ██  ██████  ██    ██   ██       ██████  ███████ ███████
+         ██  ██  ██    ██ ██    ██   ██      ██    ██ ██      ██
+          ████   ██    ██ ██    ██   ██      ██    ██ ███████ █████
+           ██    ██    ██ ██    ██   ██      ██    ██      ██ ██
+           ██     ██████   ██████    ███████  ██████  ███████ ███████
         """)
+
 
 def replay_game():
     while True:
