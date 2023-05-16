@@ -26,6 +26,7 @@ def decide_winner(player_move, computer_move):
 
 
 def display_title():
+    print(colors.CYAN)
     print(r"""
     ██████  ██████  ███████
     ██  ██  ██  ██  ██
@@ -37,7 +38,7 @@ def display_title():
 
 def display_rules():
     print(f"{colors.WHITE}{colors.BOLD}================================")
-    print(f"\n{colors.GREEN}{colors.BOLD} RULES: {colors.END}")
+    print(f"\n{colors.GREEN}{colors.BOLD}RULES: {colors.END}")
     print("")
     print(f"{colors.CYAN}Choose Rock, Paper, or Scissors.{colors.END}")
     print("")
@@ -60,9 +61,9 @@ def play_game():
         player_move = get_player_move()
         computer_move = random.choice(valid_moves)
 
-        print(f"{colors.BLUE}{colors.BOLD}Player chose: {player_move}")
+        print(f"{colors.BLUE}Player chose: {player_move}{colors.END}")
         print("")
-        print(f"\n{colors.RED}{colors.BOLD}Computer chose: {computer_move}")
+        print(f"\n{colors.RED}Computer chose: {computer_move}{colors.END}")
 
         winner = decide_winner(player_move, computer_move)
 
@@ -83,38 +84,38 @@ def play_game():
 
 def display_winner(player_score, computer_score):
     if player_score > computer_score:
-        print(r"""
-       ██    ██  ██████  ██    ██   ██     ██ ██ ███    ██ ██ ██
-        ██  ██  ██    ██ ██    ██   ██     ██ ██ ████   ██ ██ ██
-         ████   ██    ██ ██    ██   ██  █  ██ ██ ██ ██  ██ ██ ██
-          ██    ██    ██ ██    ██   ██ ███ ██ ██ ██  ██ ██
-          ██     ██████   ██████     ███ ███  ██ ██   ████ ██ ██
-        """)
+        print("Player Wins")
     else:
-        print(r"""
-        ██    ██  ██████  ██    ██   ██       ██████  ███████ ███████
-         ██  ██  ██    ██ ██    ██   ██      ██    ██ ██      ██
-          ████   ██    ██ ██    ██   ██      ██    ██ ███████ █████
-           ██    ██    ██ ██    ██   ██      ██    ██      ██ ██
-           ██     ██████   ██████    ███████  ██████  ███████ ███████
-        """)
+        print("Computer Wins")
 
 
 def replay_game():
     while True:
-        play_again = input("Do you want to play again? (y/n): ").lower()
+        play_again = input("\n" + "Do you want to play again? (y/n): ").lower()
         if play_again == "y":
             player_score, computer_score = play_game()
             print("\nFinal Scores:")
             print("Player score:", player_score)
             print("Computer score:", computer_score)
             display_winner(player_score, computer_score)
+            break
         elif play_again == "n":
-            print("\nThanks for playing! Goodbye.")
+            print(colors.RED)
+            print(r"""
+             ████    ████  █      █ ████   ████  █    █ █████  ████
+            █       █    █ ██    ██ █     █    █ █    █ █      █   █
+            █   ██  ██████ █ █  █ █ ███   █    █ █    █ ███    ████
+            █    █  █    █ █  ██  █ █     █    █  █  █  █      █   █
+             ████   █    █ █      █ ████   ████    ██   █████  █    █
+            """)
+            print("-------THANKS FOR PLAYING-------")
             break
         else:
             print("Invalid input. Please enter 'y' or 'n'.")
             continue
 
+
 play_game()
+
+
 replay_game()
