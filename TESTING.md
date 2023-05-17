@@ -1,18 +1,16 @@
 # **Testing**
-## **Table of Contents:**
 * [**Testing**](#testing)
-  * [**Table of Contents:**](#table-of-contents)
   * [**Manual Testing:**](#manual-testing)
     * [***Inputs:***](#inputs)
     * [***Game-Play:***](#game-play)
-  * [**Bugs and Fixes**](#bugs-and-fixes)
-    * [**Knwon Bugs**](#known-bugs)
+  * [**Bugs**](#bugs)
+    * [**Known Bugs**](#known-bugs)
   * [**Post Development Testing**](#post-development-testing)
     * [**Validators**](#validators)
       * [***Python:*** - https://pep8ci.herokuapp.com/#](#python---httppep8onlinecom)
 
 ## **Manual Testing:** 
-During the testing phase of the game I have used the following things through out the time.
+During the testing phase of the game I have used the following things through out the time:
 
 ### ***Inputs:***
 I have tested all sorts of inputs with strings upon gameplay to see if there are any issues or breaks.
@@ -24,24 +22,25 @@ Throughout development, I was testing the game in the terminal of VScode as well
 Throughout the development phase, I was manually testing the game through different IDE's like Code Institutes terminal and code anywhere.
 The results where a fully functional game with minor cosmetic issues of the layout.
 
-## **Bugs and Fixes**
+## **Bugs**
 * ***Issue Found:***
     * Loop of display of rule after each game 
 * ***Causes:*** 
     * Coding and placements to try and hide the rules after the first or second game.
      
-### **Known Bugs**
+### **Known Bugs:**
 * Loop of display of rule after each game as it only does a cosmetic affect to the user and not serious damage to the code it does not affect.
 * The overall gameplay of the game itself. 
 
-![loop]
+![Rule Loop](docs/screenshots/rules.jpeg)
 
 
 ## **Post Development Testing**
 ### **Validators**
 
 #### ***Python:*** - https://pep8ci.herokuapp.com/#
-* Due to the downfall of PEP8 online all testing for PEP8 was done by Code institutes hand crafted version of PEP8 whichreturned no errors.
+* Due to the downfall of PEP8 online all testing for PEP8 was done by Code institutes hand crafted version of PEP8 which returned no errors.
+
 ![PEP8 CI](docs/screenshots/pep8-ci.png)
 
 [return to README.md](README.md)
