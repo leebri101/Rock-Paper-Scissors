@@ -6,11 +6,9 @@
     * [***Inputs:***](#inputs)
     * [***Game-Play:***](#game-play)
   * [**Bugs and Fixes**](#bugs-and-fixes)
-    * [**Remaining Bugs**](#remaining-bugs)
+    * [**Knwon Bugs**](#known-bugs)
   * [**Post Development Testing**](#post-development-testing)
     * [**Validators**](#validators)
-      * [***HTML*** - https://validator.w3.org/nu/](#html---httpsvalidatorw3orgnu)
-      * [***CSS*** - https://jigsaw.w3.org/css-validator/](#css---httpsjigsaww3orgcss-validator)
       * [***Python:*** - https://pep8ci.herokuapp.com/#](#python---httppep8onlinecom)
 
 ## **Manual Testing:** 
@@ -27,36 +25,20 @@ Throughout the development phase, I was manually testing the game through differ
 The results where a fully functional game with minor cosmetic issues of the layout.
 
 ## **Bugs and Fixes**
-1. **Intended Outcome:**
-    * ***Issue Found:***
-        * Loop of display of rule after each game 
-    * ***Causes:*** 
-        * Coding and placements to try and hide the rules after the first or second game.
-    * ***Solution Found:***  
-        * Instead of using inheritance, to allow for cross-functionality I opted for giving all objects a relationship with each other through belonging/possession, this was achieved by:   
-            * Creating the board object as part of the Player init method. This meant that the Player possessed the board object.   
-            * The Ship objects are created in the build_fleet method of the board, making a list of ships belonging to a particular player's board.
+* ***Issue Found:***
+    * Loop of display of rule after each game 
+* ***Causes:*** 
+    * Coding and placements to try and hide the rules after the first or second game.
      
+### **Known Bugs**
+* Loop of display of rule after each game as it only does a cosmetic affect to the user and not serious damage to the code it does not affect.
+* The overall gameplay of the game itself. 
 
-### **Remaining Bugs**
+![loop]
 
 
 ## **Post Development Testing**
 ### **Validators**
-
-#### ***HTML*** - https://validator.w3.org/nu/
-
-* ***Issue Found:***
-    * The SVG file contained attributes written in non English language and hence the validator returned the below error: 
-![HTML Validator Error](docs/screenshots/html-validator-error.jpg)
-
-* ***Solution Used:***
-    * Placing the attribute, 'lang="ca"' in the div containing the background image fixed this.
-
-#### ***CSS*** - https://jigsaw.w3.org/css-validator/
-
-* No issues were found as no CSS coding was used in the project
-![CSS Validator](https://jigsaw.w3.org/css-validator/images/vcss)  
 
 #### ***Python:*** - https://pep8ci.herokuapp.com/#
 * Due to the downfall of PEP8 online all testing for PEP8 was done by Code institutes hand crafted version of PEP8 whichreturned no errors.
