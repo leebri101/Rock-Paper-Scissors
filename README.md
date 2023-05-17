@@ -1,5 +1,8 @@
-# **Geography Challenged**
+# **RPS(Rock, Paper, Scissors)**
 ## **Site Overview**
+A simple 2 round game of rock paper scissors developed with python.
+
+### [Click here to view repository](https://github.com/leebri101/rock-paper-scissors)
 
 ## Contents-Page:
 1. [**Site Overview**](#site-overview)
@@ -8,9 +11,6 @@
     * [**User Stories**](#user-stories)
     * [**Site Objectives:**](#site-objectives)
     * [**How Is This Will Be Achieved:**](#how-will-this-be-achieved)
-    * [**Wireframes**](#wireframes)
-    * [**Color Scheme**](#color-scheme)
-    * [**Reused Code**](#reused-code)
 1. [**Current Features on all pages**](#current-features-on-all-pages)
     * [**Headers:**](#headers)
         * [*Title*](#Title)
@@ -57,16 +57,6 @@ improve/enhance the quiz to the owner.
     * A small text box which the user has to input their name to start the quiz, if nothing has been inputted the quiz cannot start.
     * A series of questions out of ten which displays the question, and four different options at which the user must pick one correct answer to see if it is correct or not.
     * A results page which gives feedback to players as to how many questions they have answered correctly out of 10. 
-    
-### **WireFrames:**
-* In order to prevent any digression to project aim & objectives I have made a few wire frames as a plan to refer back to from in case of any major changes.
-
-[Wireframes](doc/wireframes/) were all designed in Balsamiq desktop.
-* [Desktop-Landing-Page](doc/wireframes/desktop-landing-page.png)
-* [Desktop-Quiz-Page](doc/wireframes/desktop-quiz-page.png)
-* [Desktop-Results-Page](doc/wireframes/desktop-results-page.png)
-* [Mobile-Landing-Page](doc/wireframes/mobile-landing-page.png)
-* [Mobile-Quiz-Page](doc/wireframes/mobile-quiz-page.png)
 
 There was small changes from the planned wireframes to enhance the UX (User Experience). 
 Changes include:-
@@ -76,18 +66,6 @@ Changes include:-
 * A hover animation over the 4 different choices of answers within the answers section of the quiz which change color whilst the animation occurs.
 * The results page having a box which shows the player's score and a coloured gradient on the border of the box which constantly spins aorund the edge of the box.
 * A small Favicon to act as an icon for the webpage.
-
-### **Color Scheme:**
- * When creating the design of the quiz site I have went with this colour scheme to match the overall theme of georgraphy with the colors of the earth having blue and green elements.  
-
- ![Contrast Grid](doc/screenshots/color-scheme.png)
-
-### **Reused Code:**
-* Some code has been re-used in from the first milestone project due to the simplicity and effectiveness it has on the overall layout of the final design.
-    * Which one of any said weblinks have an original colours.
-    * Upon hovering over it or clicking it will change colours. 
-    * After visting the said weblink it will change to a secondary color. With the hover effect in place.
-![Reused Code](doc/screenshots/reused-code.png)
 
 ## **Current Features on all pages**
 ###  **Header**
@@ -103,11 +81,6 @@ Changes include:-
 #### *Call To Action Button:*
 * The CTA is there with theme of the Earth to match the theme and catch the user's attention the moment that they enter the site. 
     
-![CTA Button](doc/screenshots/cta-play-button.png)
-    
-* Mobile version of CTA button with header and footer.
-
-![Mobile-version](doc/screenshots/mobile-version.png)
 
 #### *Start Game Section:*
 * The start game section has an autofocus placeholder on the text box which allows for more accessibilty to the user, which is useful on mobile devices as the text cursor is already highlighted in the text box which saves time for the user to manually navigate to it as. 
@@ -151,17 +124,6 @@ Features used:
     * A Play Again button if the users wishes to replay the quiz again.
 ![Resuts-Section](doc/screenshots/results-page.png)
 
-## **Footer**
-* All icons that were used in the footer is sourced from font awesome.
-* A personal copyright has been added in-case of plagerism.
-* A personal link to my GitHub page which users can track my coding journey.
-![Footer-Page](doc/screenshots/footer.png)
-
-## **Typesetting**
- Throughout the second project milestone only this font was used:
-  * Poppins - for a more simplistic look to users so it not too much for them.
-* Fonts that have used in the project have been sourced from Google Fonts (quoted in the credits).
-
 ## **Potential-Features**
 * Due to the project deadlines being in a very tight timeframe the project had to be scaled down to a more simpler version of the RPS game but these are the features that I would like to potentially add or implement in the near future:
     * An 8bit animation for the end game displays.
@@ -174,15 +136,39 @@ Features used:
 ## **Testing-Phase**
 Details of the testing phase are be found here: [TESTING.md](TESTING.md)
 ***
+
 ## **Deployment**
-The project has been deployed with the following steps: -
 
-1. Within the project's [repository](https://github.com/leebri101/Geographically-Challenged), you select the **Settings** tab.
-2. Then select the **Pages** menu tab on the left side.
-3. Under **Source** then, select the **Main** branch from the drop-down menu and click **Save**.
-4. A message will then pop up that the project has been successfully deployed with a live link.
+### **Heroku**
+* Log into Heroku (creating an account if needed).
+* Click the "New" button from the dashboard, under the header in the top right corner.
+* Choose "Create new app."
+* Enter your application name, which has to be unique. Then select your region and click "Create App."
+* From your project page, click the "Settings" tab and scroll to "Config Vars."
+* Enter "PORT" in the KEY input field, then enter "8000" in the VALUE input field.
+* Click the "Add" button to add the Convig Vars.
+* On the same page, scroll to the buildpacks section and click "Add Buildpack."
+* Add the Python and node.js buildpacks, ensuring that the Python buildpack is listed above the node.js buildpack.
+* Go back to the tabs at the top of the page, then select the "Deploy" tab.
+* Select the Github deployment method.
+* Search for your repository name, then click the "Connect" button to link your repository.
+* At the bottom of that page, select deployment type: Automatic Deployment or Manual Deployment. 
+* Automatic Deployment will redeploy the project to Heroku every time it is pushed to GitHun. Then wait for your project * to be deployed.
 
-You can visit the live link via this URL - [Geographically Challenged](https://leebri101.github.io/Geographically-Challenged/)
+### **Forking the Repository on GitHub**
+* Log in to GitHub and locate the GitHub Repository that you want to fork.
+* In the upper right of the repository, click the "Fork" button.
+* A copy of the repository will now be available within your repositories.
+* Forking the GitHub repository makes a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository. 
+* This copy of the code can be edited without affecting the original code.
+
+## **Cloning the Repository on GitHub**
+* In the upper section of the repository, click the dropdown named "Code."
+* In the "Clone with HTTPS" section, copy the URL.
+* Open Git Bash in your IDE of choice.
+* Change the current working directory to the location you want for the cloned directory.
+* Type "git clone" and paste the URL copied from GitHub.
+*After pressing Enter, the clone of your repository will be created.
 ***
 -->
  ## **Credits**
