@@ -5,8 +5,10 @@ import random
 # Players defined choices
 def get_player_move():
     while True:
+        print("")
+        print(f"{colors.WHITE}{colors.BOLD}================================")
+        print("")
         player_move = input("Please select(rock/paper/scissors): ").lower()
-
         if player_move not in ["rock", "paper", "scissors"]:
             print("Invalid choice. Please try again.")
         else:
@@ -14,23 +16,12 @@ def get_player_move():
 
 
 # To prompt the user if they want to play again
-def play_again():
+def continue_game():
     while True:
         play_again = input("\nDo you want to play again? (y/n): ").lower()
         if play_again == "y":
             return True
         elif play_again == "n":
-            return False
-        else:
-            print("Invalid input, please enter 'y' or 'n'")
-
-
-def continue_game():
-    while True:
-        continue_game = input("\nDo you want to continue? (y/n): ").lower()
-        if continue_game == "y":
-            return True
-        elif continue_game == "n":
             return False
         else:
             print("Invalid input, please enter 'y' or 'n'")
@@ -83,17 +74,21 @@ def play_game():
     player_score = 0
     computer_score = 0
 
+    # Display of title
     display_title()
     print("\n" + colors.BOLD + "Welcome to RPS a rock paper scissors game")
     print("")
-    input("Press Enter to view rules")
-    display_rules()
+
+    # Input to skip game if user continues game
+    if not continue_game():
+        input("Press Enter to view rules")
+        display_rules()
     print("")
     input("Press Enter to start the game")
     while player_score < 2 and computer_score < 2:
         player_move = get_player_move()
         computer_move = random.choice(valid_moves)
-
+        print(f"{colors.WHITE}{colors.BOLD}================================")
         print(f"{colors.BLUE}Player chose: {player_move}{colors.END}")
         print("")
         print(f"\n{colors.RED}Computer chose: {computer_move}{colors.END}")
@@ -108,7 +103,7 @@ def play_game():
             print(f"\n{colors.RED}Computer wins this round!{colors.END}")
         else:
             print(f"\n{colors.BOLD}Tie! Replay Round{colors.END}")
-
+        print(f"{colors.WHITE}{colors.BOLD}================================")
         print(f"\n{colors.BLUE}Player score: {player_score}{colors.END}")
         print(f"\n{colors.RED}Computer score: {computer_score}{colors.END}")
 
@@ -127,7 +122,6 @@ def display_winner(player_score, computer_score):
            ██    ██    ██ ██    ██   ██ ███ ██ ██ ██  ██ ██
            ██     ██████   ██████     ███ ███  ██ ██   ████
         """)
-        print(">>>>>>>>>-------THANKS FOR PLAYING-------<<<<<<<<<")
     else:
         print("Computer Wins")
         print(colors.RED + colors.BOLD)
@@ -138,13 +132,12 @@ def display_winner(player_score, computer_score):
            ██    ██    ██ ██    ██   ██      ██    ██      ██ ██
            ██     ██████   ██████    ███████  ██████  ███████ ██████
         """)
-        print(">>>>>>>>>-------THANKS FOR PLAYING-------<<<<<<<<<")
 
 
 # Inputs to allow player to play again or not
 def replay_game():
     while True:
-        if play_again():
+        if continue_game():
             player_score, computer_score = play_game()
             print("Final Scores:")
             print("")
@@ -154,20 +147,17 @@ def replay_game():
             print("")
             display_winner(player_score, computer_score)
         else:
-            if continue_game():
-                play_game()
-            else:
-                # Anscii art of end game screen
-                print(colors.RED + colors.BOLD)
-                print(r"""
-                  ████    ████  █      █ ████   ████  █    █ █████  ████
-                 █       █    █ ██    ██ █     █    █ █    █ █      █   █
-                 █   ██  ██████ █ █  █ █ ███   █    █ █    █ ███    ████
-                 █    █  █    █ █  ██  █ █     █    █  █  █  █      █   █
-                  ████   █    █ █      █ ████   ████    ██   █████  █    █
-                """)
-                print(">>>>>>>>>-------THANKS FOR PLAYING-------<<<<<<<<<")
-                break
+            # Anscii art of end game screen
+            print(colors.RED + colors.BOLD)
+            print(r"""
+             ████   ████  █      █ ████   ████  █    █ █████  ████
+            █      █    █ ██    ██ █     █    █ █    █ █      █   █
+            █  ██  ██████ █ █  █ █ ███   █    █ █    █ ███    ████
+            █   █  █    █ █  ██  █ █     █    █  █  █  █      █   █
+            ████   █    █ █      █ ████   ████    ██   █████  █    █
+            """)
+            print(">>>>>>>>>-------THANKS FOR PLAYING-------<<<<<<<<<")
+            break
 
 
 play_game()
