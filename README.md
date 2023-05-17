@@ -163,19 +163,16 @@ Features used:
 * Fonts that have used in the project have been sourced from Google Fonts (quoted in the credits).
 
 ## **Potential-Features**
-* Due to the project deadlines being in a very tight timeframe the project had to be scaled down to a more simpler version of the geography quiz but these are the features that I would like to potentially add or implement in the near future:
-    * An interactive version with sounds and unique animations.
-    * Potentially adding a leaderboard system/table to challenge and rival other users.
+* Due to the project deadlines being in a very tight timeframe the project had to be scaled down to a more simpler version of the RPS game but these are the features that I would like to potentially add or implement in the near future:
+    * An 8bit animation for the end game displays.
+    * potential 
     * A narration voice over for all the questions and answers for users with disablity issues.
     * A mixture of sound, images and text based questions and answers.
     * A shuffler for answer as well.
-    * Different modes within the quiz for example:
-        * A speed test to see how quick and accurate the user can answer the questions.
-        * Different difficulites in place to challenge the user.
 
 ***
 ## **Testing-Phase**
-Full details of the testing phase can be found here: [TESTING.md](TESTING.md)
+Details of the testing phase are be found here: [TESTING.md](TESTING.md)
 ***
 ## **Deployment**
 The project has been deployed with the following steps: -
@@ -187,23 +184,21 @@ The project has been deployed with the following steps: -
 
 You can visit the live link via this URL - [Geographically Challenged](https://leebri101.github.io/Geographically-Challenged/)
 ***
-
+-->
  ## **Credits**
 ### **Honorable mentions**
-The second project was a very interesting but difficult challenge, which tested my understanding of HTML & CSS but to incorperate JavaScript too. However the more stuff that was being introduced to the project the more simpler and effective the project became due to time restraints of the course, but nonetheless it is a good way to show what i can do, but i must credit the following people:
- * [Can Sucullu](https://github.com/cansucullu) - My Code Institute mentor who is incredible at giving me insite and suggestions on further improving my project and is a huge help to continuously support me for any sort of technical issues within the project.
-* The Slack community of Code Institute for helping me with JavaScript module as it is somewhat challenging due to the deadline and questions on the module.
-* Code Institute Tutors for assisting me with the technical aspects of the project i.e the intergation from Gitpod to codeanywhere and general assitance to coding problems. 
-* My older brother for always being available for being a personal guinea pig for my projects (and with many more to come) and giving me constant constructive feedback all the time.
-* Huge thanks to my girlfriend for the constant support and nagging me to stay focussed whenever i get distacted and also giving me useful advice and insight.
+The third project was very a difficult challenge, which tested my understanding of python . However the more stuff that was being introduced to the project the more simpler and effective the project became due to time restraints of the course, but nonetheless it is a good way to show what i can do, but i must credit the following people:
+ * [Can Sucullu](https://github.com/cansucullu) - My Code Institute mentor who is incredible at giving me insight and suggestions on further improving my project and is a huge help to continuously support me for any sort of technical issues within the project.
+* The Slack community of Code Institute for helping me with python module as it is somewhat challenging due to the deadline and questions on the module.
+* Code Institute Tutors for assisting me with the technical aspects of the project i.e techical issues in regards to the coding. 
+* Huge thanks to my girlfriend for the constant support.
 
 ### **General reference:**
-* The project theme was inspired by the Code Institute's coding project called Love Maths. I have tried to change as much as possible but there may be some similarties within the codes.
-* I have used W3Schools for a basic understanding and learning process for knowing JavaScript a bit better, and for general basic coding references and as general encyclopedia for any code related issues or ideas.
+* The project theme was inspired by the Code Institute's coding project called Love sandwiches. I have tried to change as much as possible 
+* I have used W3Schools for a basic understanding and tips for python for generic basic coding references and as general encyclopedia for any code related issues or ideas.
 
 ### **Media:**
-* https://www.lucidchart.com/pages/
-* https://www.ascii-code.com/219
-* https://thehelloworldprogram.com/python/python-game-rock-paper-scissors/
-* https://theasciicode.com.ar/extended-ascii-code/block-graphic-character-ascii-code-219.html
-* http://patorjk.com/software/taag/#p=display&f=3D%20Diagonal&t=Skyreign
+* Lucid chart for flow chart creation:- https://www.lucidchart.com/pages/ 
+* Hello World used as an idea on how to create the game:- https://thehelloworldprogram.com/python/python-game-rock-paper-scissors/
+* Basic format of flow chart idea and also basis of rock paper scissor game:- https://learn.adafruit.com/rock-paper-scissors-circuitpython/design
+* Anscii art generator:- http://patorjk.com/software/taag/#p=display&f=ANSI%20Regular&t=YOU%20WIN
