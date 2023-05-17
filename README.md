@@ -15,18 +15,15 @@ A simple 2 round game of rock paper scissors developed with python.
     * [**Flow-chart**](#flow-chart)
 1. [**Current Features**](#current-features)
     * [*Title*](#Title)
-        * [*Call To Action Button*](#call-to-action-button)
         * [**Start Game Section**](#start-game-section)
-        * [**Input Handler**](#input-handler)
-      * [**Questions and Answers**:](#questions-and-answers)
-          * [*Q and A*](#q-and-a)
-    * [**Point-Tracker**](#point-tracker)
+        * [**Input-Handler**](#input-handler)
     * [**Results-Section**](#results-section)
-    * [**Footer**](#footer)
-    * [**Typsetting**](#typesetting)
 1. [**Potential-Features**](#future-enhancements)
 1. [**Testing Phase**](#testing-phase)
 1. [**Deployment**](#deployment)
+    * [**Heroku**](#heroku)
+    * [**Basic Setup**](#basic-setup)
+
 1. [**Credits**](#credits)
     * [**Honorable mentions**](#honorable-mentions)
     * [**General reference:**](#general-reference)
@@ -61,15 +58,15 @@ A simple 2 round game of rock paper scissors developed with python.
 * To have a better understanding of the game, I have created a flow chart outlining the process it goes through which has been created from [Lucid Chart](https://lucid.app/documents#/documents?folder_id=recent).
 
 ![Flow-Chart of RPS](docs/screenshots/flowchart.jpeg)
+
 ***
 ## **Current Features**
-
 ### **Start Game Section:**
 * A simple design which was made from patorjk.com (as mentioned in the media section) consisting of ascii art to match the theme of an 8bit game to bring back nostalgia.
 
 ![Start-game](docs/screenshots/rules.jpeg)
 
-### **Input Handler:**
+### **Input-Handler:**
 * An Input handler has been put in place to allow any invalid entries to prompt the user to type or enter in the correct instruction.
 
 ![Input Handler](docs/screenshots/input-handler.jpeg)
@@ -78,12 +75,16 @@ A simple 2 round game of rock paper scissors developed with python.
 * The results sections shows the following things:
     * Who won overall between the player and computer.
     * A score in place to keep track of both players
-    * A winning display of either player, if the user wins it will display a prompt and ascii art. 
+    * A winning display of either player, if the user wins it will display a prompt and ascii art.
+    * It also has input handler for the user if they wish to continue to play the game or not which it will loop back to the beginning.(Which is linked in wit the End-Game results)
 
-![Results Screen](docs/screenshots/)
+![Results Screen](docs/screenshots/results.jpeg)
 
-## ** End-Game**
-* 
+## **End-Game**
+* If the user wishes to not continue it will bve shown a nostaligic game over ascii art which thanks the user for their time in playing the game.
+* At this instance the user will need to restart the app if they wish to replay the game.
+
+![End-Game](docs/screenshots/end-game.jpeg)
 
 ## **Potential-Features**
 * Due to the project deadlines being in a very tight timeframe the project had to be scaled down to a more simpler version of the RPS game but these are the features that I would like to potentially add or implement in the near future:
@@ -91,29 +92,33 @@ A simple 2 round game of rock paper scissors developed with python.
     * Potentially adding background behind the app.
     * 8bit music to go with the gameplay.
     * A Possibility of adding more players to allow for a turn based game.
-
 ***
+
 ## **Testing-Phase**
 Details of the testing phase are be found here: [TESTING.md](TESTING.md)
+
 ***
-
 ## **Deployment**
-
 ### **Heroku**
-* Log into Heroku (creating an account if needed).
-* Click the "New" button from the dashboard, under the header in the top right corner.
-* Choose "Create new app."
-* Enter your application name, which has to be unique. Then select your region and click "Create App."
-* From your project page, click the "Settings" tab and scroll to "Config Vars."
-* Enter "PORT" in the KEY input field, then enter "8000" in the VALUE input field.
-* Click the "Add" button to add the Convig Vars.
-* On the same page, scroll to the buildpacks section and click "Add Buildpack."
-* Add the Python and node.js buildpacks, ensuring that the Python buildpack is listed above the node.js buildpack.
-* Go back to the tabs at the top of the page, then select the "Deploy" tab.
-* Select the Github deployment method.
-* Search for your repository name, then click the "Connect" button to link your repository.
-* At the bottom of that page, select deployment type: Automatic Deployment or Manual Deployment. 
-* Automatic Deployment will redeploy the project to Heroku every time it is pushed to GitHun. Then wait for your project * to be deployed.
+### **Basic Setup:**
+* Users must first log into Heroku (creating an account if needed).
+* Then click the "New" button from the dashboard, on the top right hand corner.
+* Then choose "Create a new app".
+* Next Enter a unique name for you application, then select the region and click "Create app".
+### **Technical Setup:**
+* Then from your project page, click on the "Settings" tab scroll down to the area which says "Config Vars".
+* YOU MUST DO THESE STEPS CAREFULLY TO ENSURE IT WORKS PROPERLY:
+    * Enter "PORT" in the "KEY" input field and then enter "8000" within the "VALUE" input field.
+    * Click the "ADD" button to add the "Convig Vars".
+    * Within the same page, scroll to the buildpacks sections and click "ADD BUILDPACK".
+    * Add the "Python" and "node.js" buildpack, and to ensure that the python pack is above the node.js pack if not you can slide them into teh stated order.
+### ***Deployment of Heroku:***
+* Go at the tabbbed section on the top of the page and select the "DEPLOY" tab.
+* Select GitHub deployment method.
+* Search for your respository namne, (keep in mind that it must be the exact same as how you first named the repository) then click the "CONNECT" button to link the repository.
+* At the bottom of the page, select deployment type of either "Automatic" or "Manual Deployment".
+* If you have chosen Automatic Deployment then it will re-deploy the project to heroku each time something is pushed onto GitHub.
+* Then it will display a message that your app is fully deployed and you will have a link to preview and test it. 
 
 ### **Forking the Repository on GitHub**
 * Log in to GitHub and locate the GitHub Repository that you want to fork.
