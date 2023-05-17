@@ -36,10 +36,10 @@
 ## **Project Planning**
 ### **Target Audiences:**
 * For users who are interesting in a playing short games.
-* For users who are learning about geography.
 
+<!-->
 ### **Site Objectives:**
-* Allowing users to know of short fun facts about geography.
+* 
 * Educating the user on using this as a fun way of educating themselves.
 
 ### **User Stories:**
