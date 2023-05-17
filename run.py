@@ -127,8 +127,7 @@ def display_winner(player_score, computer_score):
            ██    ██    ██ ██    ██   ██ ███ ██ ██ ██  ██ ██
            ██     ██████   ██████     ███ ███  ██ ██   ████
         """)
-        print(">>>>>>>>>-------THANKS FOR PLAYING-------<<<<<<<<<")
-        
+        print(">>>>>>>>>-------THANKS FOR PLAYING-------<<<<<<<<<")       
     else:
         print("Computer Wins")
         print(colors.RED + colors.BOLD)
@@ -139,8 +138,7 @@ def display_winner(player_score, computer_score):
            ██    ██    ██ ██    ██   ██      ██    ██      ██ ██
            ██     ██████   ██████    ███████  ██████  ███████ ██████
         """)
-        print(">>>>>>>>>-------THANKS FOR PLAYING-------<<<<<<<<<")
-        
+        print(">>>>>>>>>-------THANKS FOR PLAYING-------<<<<<<<<<")    
 
 
 # Inputs to allow player to play again or not
