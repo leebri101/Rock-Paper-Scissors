@@ -13,7 +13,7 @@ A simple 2 round game of rock paper scissors developed with python.
     * [**User Stories**](#user-stories)
     * [**How Is This Will Be Achieved:**](#how-will-this-be-achieved)
     * [**Flow-chart**](#flow-chart)
-1. [**Current Features on all pages**](#current-features-on-all-pages)
+1. [**Current Features**](#current-features)
     * [*Title*](#Title)
         * [*Call To Action Button*](#call-to-action-button)
         * [*Start Game Section*](#start-game-section)
@@ -63,7 +63,7 @@ A simple 2 round game of rock paper scissors developed with python.
 
 ![Flow-Chart of RPS](docs/screenshots/flowchart.jpeg)
 ***
-## **Current Features on all pages**
+## **Current Features**
 
 #### **Start Game Section:**
 * A simple design which was made from patorjk.com (as mentioned in the media section) consisting of ascii art to match the theme of an 8bit game to bring nostalgia.
