@@ -2,6 +2,7 @@ from classes.game import colors
 import random
 
 
+# Players defined choices
 def get_player_move():
     while True:
         player_move = input("Please select(rock/paper/scissors): ").lower()
@@ -12,6 +13,7 @@ def get_player_move():
             return player_move
 
 
+# Winning conditions
 def decide_winner(player_move, computer_move):
     if player_move == computer_move:
         return "tie"
@@ -25,6 +27,7 @@ def decide_winner(player_move, computer_move):
         return "computer"
 
 
+# Title Display
 def display_title():
     print(colors.CYAN)
     print(r"""
@@ -36,6 +39,7 @@ def display_title():
     """)
 
 
+# Display of rules to player
 def display_rules():
     print(f"{colors.WHITE}{colors.BOLD}================================")
     print(f"\n{colors.GREEN}{colors.BOLD}RULES: {colors.END}")
@@ -49,13 +53,14 @@ def display_rules():
     print(f"{colors.WHITE}{colors.BOLD}================================")
 
 
+# Start of game 
 def play_game():
     valid_moves = ["rock", "paper", "scissors"]
     player_score = 0
     computer_score = 0
 
     display_title()
-    print("\n" + "Welcome to RPS a simple rock paper scissors game")
+    print("\n" + colors.BOLD + "Welcome to RPS a rock paper scissors game")
 
     input("Press Enter to view rules")
     display_rules()
@@ -86,6 +91,7 @@ def play_game():
     return player_score, computer_score
 
 
+# Display of winners after two rounds
 def display_winner(player_score, computer_score):
     if player_score > computer_score:
         print("Player Wins")
@@ -109,6 +115,10 @@ def display_winner(player_score, computer_score):
         """)
 
 
+'''
+inputs to allow the player
+to play agaiin or not
+'''
 def replay_game():
     while True:
         play_again = input("\n" + "Do you want to play again? (y/n): ").lower()
@@ -121,6 +131,8 @@ def replay_game():
             print("Computer score:", computer_score)
             display_winner(player_score, computer_score)
             break
+
+        # Anscii art of end game screen
         elif play_again == "n":
             print(colors.RED)
             print(r"""
