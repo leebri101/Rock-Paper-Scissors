@@ -82,6 +82,7 @@ def play_game():
     # Input to skip game if user continues game
     if display_rules:
         input("Press Enter to view rules")
+        display_rules()
     print("")
     input("Press Enter to start the game")
     while player_score < 2 and computer_score < 2:
