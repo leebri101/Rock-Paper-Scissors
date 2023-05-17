@@ -138,7 +138,7 @@ Details of the testing phase are be found here: [TESTING.md](TESTING.md)
 
  ## **Credits**
 ### **Honorable mentions**
-The third project was very a difficult challenge, which tested my understanding of python . However the more stuff that was being introduced to the project the more simpler and effective the project became due to time restraints of the course, but nonetheless it is a good way to show what i can do, but i must credit the following people:
+Python is a an extremely challenging coding langauge at which it can be so simple yet so powerful it truly is an interesting and useful language, it brought back memories at which i wanted to create an in-text-rpg where it was as simple a  3v3 charater game with normal, attacks, spells and items to use which is proven to be extremely difficult, but nonetheless it is a good way to show what i can do, but i must credit the following people:
  * [Can Sucullu](https://github.com/cansucullu) - My Code Institute mentor who is incredible at giving me insight and suggestions on further improving my project and is a huge help to continuously support me for any sort of technical issues within the project.
 * Slack community of Code Institute for helping me with python module as it is somewhat challenging due to the deadline and questions on the module.
 * Code Institute Tutors for assisting me with the technical aspects of the project i.e techical issues in regards to the coding. 

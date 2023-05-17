@@ -34,7 +34,6 @@ The results where a fully functional game with minor cosmetic issues of the layo
 
 ![Rule Loop](docs/screenshots/rules.jpeg)
 
-
 ## **Post Development Testing**
 ### **Validators**
 
