@@ -94,7 +94,7 @@ def play_game():
         print(f"\n{colors.RED}Computer chose: {computer_move}{colors.END}")
 
         winner = decide_winner(player_move, computer_move)
-
+        # Display of winners
         if winner == "player":
             player_score += 1
             print(f"\n{colors.BLUE}Player wins this round!{colors.END}")
@@ -102,6 +102,7 @@ def play_game():
             computer_score += 1
             print(f"\n{colors.RED}Computer wins this round!{colors.END}")
         else:
+            # Loop for players if a tie
             print(f"\n{colors.BOLD}Tie! Replay Round{colors.END}")
         print(f"{colors.WHITE}{colors.BOLD}================================")
         print(f"\n{colors.BLUE}Player score: {player_score}{colors.END}")
@@ -139,6 +140,7 @@ def replay_game():
     display_rules()
     while True:
         if continue_game():
+            # Display of scores
             player_score, computer_score = play_game()
             print("Final Scores:")
             print("")
@@ -148,7 +150,7 @@ def replay_game():
             print("")
             display_winner(player_score, computer_score)
         else:
-            # Anscii art of end game screen
+            # Ascii art of end game screen
             print(colors.RED + colors.BOLD)
             print(r"""
              ████   ████  █      █ ████   ████  █    █ █████  ████
@@ -161,6 +163,7 @@ def replay_game():
             break
 
 
+# Restart of game
 play_game()
 
 
