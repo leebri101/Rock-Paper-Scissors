@@ -16,9 +16,8 @@ A simple 2 round game of rock paper scissors developed with python.
 1. [**Current Features**](#current-features)
     * [*Title*](#Title)
         * [*Call To Action Button*](#call-to-action-button)
-        * [*Start Game Section*](#start-game-section)
-      * [**Quiz-Section**:](#quiz-section)
-          * [*Quiz-Tracker*](#quiz-tracker)
+        * [**Start Game Section**](#start-game-section)
+        * [**Input Handler**](#input-handler)
       * [**Questions and Answers**:](#questions-and-answers)
           * [*Q and A*](#q-and-a)
     * [**Point-Tracker**](#point-tracker)
@@ -65,48 +64,33 @@ A simple 2 round game of rock paper scissors developed with python.
 ***
 ## **Current Features**
 
-#### **Start Game Section:**
-* A simple design which was made from patorjk.com (as mentioned in the media section) consisting of ascii art to match the theme of an 8bit game to bring nostalgia.
+### **Start Game Section:**
+* A simple design which was made from patorjk.com (as mentioned in the media section) consisting of ascii art to match the theme of an 8bit game to bring back nostalgia.
 
 ![Start-game](docs/screenshots/rules.jpeg)
 
-### **Quiz-Section**:
-#### *Quiz-tracker:*
-Features used:
-* A indicator display to track the current question number the user is on out of the total quiz questions.
-* A countdown timer with a animation which moves each time a second is lost within the alloted time length.
-* A countdown bar to also track time but visually display the length of time left in the bar.
+### **Input Handler:**
+* An Input handler has been put in place to allow any invalid entries to prompt the user to type or enter in the correct instruction.
 
-
-### **Questions and Answers**:
-#### *Q and A:*
-Features used:
-* A question with a four choice option answer selector. 
-* Users being able to select any answer before clicking next to proceed to the next question.
-* Each answer having a hover animation with a color changing function,  the color also changes when the user clicks on answer. 
-* The Fisher-Yates method used to shuffle all the questions and answers to any given random order out of ten. So no same question is used twice.
-
-## **Point-Tracker**
-* The point tracker is used to display to the user whether they have; answered the question correctly, gave an incorrect answer, did not give answer and to show which answer they are currently on.
-* The point tracker is indicated in four different colors:
-    * Green: Meaning the user has answered the question correctly.
-    * Red: Meaning the user has answered incorrectly.
-    * Gray: Meaning the user has ran out of time or can alternatively skip the question.
-    * Yellow: To indicate to the user that they are on the current question.
-
+![Input Handler](docs/screenshots/input-handler.jpeg)
 
 ## **Results-Section**
 * The results sections shows the following things:
-    * The users score out of 10.
-    * A feedback message to the user as to whatever associated score they have recieved.
-    * A Play Again button if the users wishes to replay the quiz again.
+    * Who won overall between the player and computer.
+    * A score in place to keep track of both players
+    * A winning display of either player, if the user wins it will display a prompt and ascii art. 
 
+![Results Screen](docs/screenshots/)
+
+## ** End-Game**
+* 
 
 ## **Potential-Features**
 * Due to the project deadlines being in a very tight timeframe the project had to be scaled down to a more simpler version of the RPS game but these are the features that I would like to potentially add or implement in the near future:
     * An 8bit animation for the end game displays.
     * Potentially adding background behind the app.
-    * 8bit music to go with theh gameplay
+    * 8bit music to go with the gameplay.
+    * A Possibility of adding more players to allow for a turn based game.
 
 ***
 ## **Testing-Phase**
