@@ -1,109 +1,176 @@
-# Testing Page of Contents
-* [**Development Testing Phase**](#development-testing-phase)
-    * [**Manual Testing Phase**](#manual-testing-phase)
-    * [**Known Issues and Solutions and Bugs**](#known-issues-and-solutions-and-bugs)
-* [**Post Development Testing-Phase**](#post-development-testing-phase)
-  * [**Validator Testing**](#validator-testing)
-    * [**HTML**](#html---httpsvalidatorw3orgnu)
-    * [**CSS**](#css---httpsjigsaww3orgcss-validator)
-    * []()
-  * [**Lighthouse Scoring**](#lighthouse-scoring)
+# **Testing**
+## **Table of Contents:**
+* [**Testing**](#testing)
+  * [**Table of Contents:**](#table-of-contents)
+  * [**Manual Testing:**](#manual-testing)
+    * [***PEP8 Linter:***](#pep8-linter)
+    * [***Inputs:***](#inputs)
+    * [***Game Play:***](#game-play)
+  * [**Bugs and Fixes**](#bugs-and-fixes)
+    * [**Remaining Bugs**](#remaining-bugs)
+  * [**Post Development Testing**](#post-development-testing)
+    * [**Validators**](#validators)
+      * [***HTML*** - https://validator.w3.org/nu/](#html---httpsvalidatorw3orgnu)
+      * [***CSS*** - https://jigsaw.w3.org/css-validator/](#css---httpsjigsaww3orgcss-validator)
+      * [***Python:*** - http://pep8online.com/](#python---httppep8onlinecom)
 
-## **Development Testing Phase**
-During development phase, I was manually testing the site in two ways:-
-    
-1. Publishing the page via GitHub and sharing it with friends and family to test within a set controlled environment, and receive feedback on major and small changes that needed to be rectified.
+## **Manual Testing:** 
+I performed manual testing throughout this project in the following ways:
+### ***PEP8 Linter:***
+To begin with, I was using Pylint to lint my code. The reason for this was that I was developing on my local machine using Vscode and a virtual environment meaning flake8 was not working for me. After some research, I discovered the error with flake8 was in the Code Institute settings Json where CI had set the file path for the linter according to the Gitpod virtual environment. After deleting the file path and installing flake8 with the pip install command, I continued developing with the course-recommended linter.
 
-1. Self testing to ensure that "I" as the creator know what to expect of the site.
+During the above investigation, I also noticed the below line in the settings Json of the code institute template. I began to wonder what it was: -   
+ 
+ "python.formatting.autopep8Path"
 
-### **Manual Testing Phase**
-* During the testing phase , I used three different browsers to ensure consistency & cross-platform connectivity. The browsers used in the tests are:
+A quick google search revealed the following console command "$ autopep8 --in-place --aggressive --aggressive run.py", and after executing this command, the function formatted my code perfectly in line with PEP8 coding conventions.
 
-  1. Chrome
-  2. Opera GX
-  3. Edge
-  
-* I have also asked a small group of people to test the site using Apple & Android products using safari. The users reported back with no issues with overall content but with minor styling amendmants or styling suggestions which will be implimented in the near future with further testing.
+### ***Inputs:***
+I have tested all inputs with strings where expecting integers, integers where expecting strings and adding spaces to the input value.  
 
-* Google Chrome: 
-![Google Chrome](doc/screenshots/google-chrome.png)
+Lastly, I challenged the slack community to break the app in any way possible which by the deployment of final product was not possible.   
 
-* Opera GX:
-![Opera GX](doc/screenshots/opera-gx.png)
+### ***Game Play:***
+Throughout development, I was testing the game in the terminal of VScode as well as several playing multiple rounds in the Code Institute terminal template for each deployment to Heroku.
 
-* Microsoft Edge:
-![Microsoft Edge](doc/screenshots/microsoft-edge.png)
+The end result is a robust game which stays playing continuously without error.
 
-### **Known Issues and Solutions and Bugs**
-* Below is the list of bugs that have been encountered in the project and list of solutions used during the development & testing phase of the project.
+## **Bugs and Fixes**
+1. **Intended Outcome:** - Well-defined classes containing related methods.
+    * ***Issue Found:***
+        * At first, I attempted to make everything a sub-class of Player. However, after much research, I found this improper use of OOP. 
+    * ***Causes:*** 
+        * By making Player a superclass I was telling the computer that the board and ship were a type of Player, which is not the case. Player, Board, and Ship are all three distinct object types.
+    * ***Solution Found:***  
+        * Instead of using inheritance, to allow for cross-functionality I opted for giving all objects a relationship with each other through belonging/possession, this was achieved by:   
+            * Creating the board object as part of the Player init method. This meant that the Player possessed the board object.   
+            * The Ship objects are created in the build_fleet method of the board, making a list of ships belonging to a particular player's board.
+     
+1. **Intended Outcome:** - Placing every ship on an original set of tiles with no overlap.
+    * ***Issue Found:***
+        * I initially tried to append the start tile directly to the ship coordinates, which led to no definition between a set of coordinates.
+    * ***Causes:*** 
+        * At this stage of development, I had yet to convert the start position input into a tuple. Not having a tuple of two numbers meant that when a player entered two numbers, the code added them to the list as individual numbers.  
+    *  ***Solution Found:***  
+        *  At the start of the function, I created an empty list of occupied tiles, enabling me to use occupied_coordinates.append(tuple(random_start)). This line of code later turned into occupied_coordinates.append(ship_instance.coordinates), which updated the list with the full coordinates of each ship so they could never start from a duplicate tile. The occupied_coordinate list was then later fed back into the build ship function to ensure that tiles could not be reused when placing a ship.
 
-* Known Issues:
-  * Grey bordering issue in results page (issue can only be seen via preview of live weblink).
-    ![Error of Results Page](doc/screenshots/error-on-results-page.png)
+1. **Intended Outcome:** - A auto place option offered to the user allowing for a quick start game feature.
+    * ***Issue Found:***
+        * When it came to the computer player's turn, it offered me the choice to place the ship on the board manually.
+    * ***Causes:***
+        * The interpreter could not distinguish a difference between the intended AI player and the intended human player.  
+    * ***Solution Found:*** 
+        * By adding an if statement in the Player init method, I could set the call of the board class to start with the auto set up as default when the string "computer" was added into the objects constructor call. 
+        * The downside to this was that the app could be broken easily by the player entering their name as "computer."
+            * This was then resolved within the Game class method "name_input." I added a conditional statement that printed a tongue-in-cheek reason why the human player could not also be called "computer". It did occur to me that I could have also added a variable into the init called human_player as a boolean; however, I preferred my final solution to add an element of personality to a classical game.
 
+1. **Intended Outcome:** - Recognizing the non-human player and skipping the manual ship placement.
+    * ***Issue Found:***
+        * When initializing the computer player, the app was still offering the choice to place the computer's ships manually. 
+    * ***Causes:*** 
+        * Originally, I used an *args parameter to pass in the list of occupied coordinates. The auto-placement was passed in after the *args parameter and added to the list passed with the *args parameter. 
+        * I later discovered this was an incorrect use of *args, and despite the first fix below working, the real issue was that the function was reading the first parameter as "self".
+    * ***Solution Found***
+        * The first solution was to move the *args to the last passed parameter, which worked but was an improper use of *args.
+        * I later realized that the interrupter read the first parameter as "self". Removing the *args and adding "self " as the first parameter worked as the final resolution for the method function.
+         
+1. **Intended Outcome** - Search through a list of occupied tiles when placing a ship and return a boolean value to indicate whether or not the passed guess has been used before. 
+   * ***Issue Found:***
+        * My statements to read the lists containing the already occupied tiles were failing to work correctly.
+    * ***Causes:*** 
+        * I only checked the outer list with my conditional statements and not the lists within the lists.
+    * ***Solution Found:***
+        * By creating a nested for loop to check each item of each nested list and returning a boolean value when it found a match or not. I assigned the static method containing the for loop to a variable and successfully used it as a conditional. 
 
-  * Users can score more than 10 if they get all the answers correct.
-    ![Error on Player Feedback](doc/screenshots/error-player-feedback.png)
+1. **Intended Outcome** - Until the user gives a valid input, the code will loop around and provide feedback to the user.
+    * ***Issue Found:***
+        * Many infinite loops in the process of trying to set this up.
+    * ***Causes:***
+        * There was an instance where I neglected to define the escape variable before the loop.
+        * I ran the code with a conditional statement that couldn't trigger within the while loop.
+    *  ***Solution Found:***
+        * A combination of return statements, break, and booleans assigned to variables.
 
-* Solutions: 
-  * Changed some of the values so it doesn't clash with the variables.
+1. **Intended Outcome** - A dictionary with occupied tiles as the key and ship symbol as the value. The app would then check the guess and find the correct ship to update the damaged tiles on.
+    * ***Issue Found:***
+        * Trying to zip() the list of coordinates together with the ship symbol returned an error.
+    * ***Causes:***
+        * Due to the list lengths being different sizes, the zip() method could not join all the ship's coordinates with a single defined symbol of the ship instance.
+    *  ***Solution Found:***
+        * When defining the ship symbol in the subclasses of the ship class, I multiplied the symbol by the ship's length, creating two lists of equal size to be zipped together into a dictionary.
 
-    ![Solution to Player Feedback](doc/screenshots/player-feedback-solution.png)
+1. **Intended Outcome** - All ships placed on the board after all tile coordinates in a ship instance were deemed original.
+    * ***Issue Found:***
+        * Although the console showed no error, the ship failed to show up on the board after the placement phase.
+    * ***Causes:***
+        * I used the append method to append the ship symbol to the board 2d array.
+    *  ***Solution Found:***
+        * By changing append to the assignment operator (=) I resolved the issue.
 
-* Bugs: 
-  * Gray Bordering issue of resullts page:
-    * Due to the time-frame of the project and the submission deadline being a day before the submission date, the issue of the grey border appearing in the linear gradient on the results page of the quiz is left in place as it does not fully do any harm in any of the major coding components nor does it crash the whole site or affect the code in the background as it is a minor appearnce issue.
-    
-## **Post Development Testing Phase**
-### **Validator Testing**
+1. **Intended Outcome** - When a player made a guess, the opponent's board could be accessed and updated accordingly.
+    * ***Issue Found:***
+        * without using the global scope allowing instance of an object to manipulate the data of another object.
+    * ***Causes:***
+        * This was caused mostly by my inexperience in working with OOP and classes.
+    *  ***Solution Found:***
+        * Originally, I passed the opponent board into a class method that existed before I created the object, so it was not necessarily a correct way to use OOP.
+        * In the end, I created a new Game class for the game loop and created the Player objects within it. From there, I was able to access the methods of both objects with constructors and parameters.
 
-#### **HTML** - https://validator.w3.org/nu/
+1. **Intended Outcome** - A continuous loop of guess and guess results until someone sank all five of the other player's ships.
+    * ***Issue Found:***
+        * After a player had sunk three ships, every guess returned a symbol for a miss even though I could see it was hitting a ship.
+    * ***Causes:***
+        * I was using the function "self.fleet_coords_map()" and not the init variable "self.map_of_fleet" in the code, causing the dictionary to rebuild every time a player took a turn. Since there were fewer ships in the object once a player sank one, The for loop creating the dictionary would loop fewer times, thus omitting some of the later created ships.. 
+    *  ***Solution Found:***
+        * Began calling this dictionary with "self.map_of_fleet" thereby accessing the dictionary generated during the setup phase and not a new dictionary formed by looping less because fewer ships in the board object instance.
 
-* 0 major errors, 12 warnings have been found mostly due to the lack of headings for the HTML file.
+1. **Intended Outcome** - The user's guess results accurately reflect hit or miss on their guess board.
+    * ***Issue Found:***
+        * When testing he deployed game hits were showing in random positions that didn't make sense when taking into account ship length.
+    * ***Causes:***
+        * I included the constructor for the computer player inside the firing round while loop, which generated a new computer player board/fleet every time the while loop repeated itself.
+    *  ***Solution Found:***
+        * Moving the computer player constructor outside of the while loop resolved. The solution meant the player object "computer" was created only once.
 
-![HTML-Validator](doc/screenshots/html-validator.png)
+1. **Intended Outcome** - Ascii art text for the intro screen displayed as legible words.
+    * ***Issue Found:***
+        * The text printed partially formed, and the console appeared to push several characters to the right-hand side of the text instead of being printed within it.
+    * ***Causes:***
+        * The backslashes in the Ascii art were being read as escape characters and not being printed in place. The lines containing the backslash had moved from their intended position in the text.
+    *  ***Solution Found:***
+        * The first solution was to add a single space after each line which converted the backslash into a string. This solution, however, returned errors with the linter and pep8 online.
+        * I eventually realized that adding a second backslash next to every backslash would turn the escape character into a single backslash and print correctly in the terminal.
 
-#### **CSS** - https://jigsaw.w3.org/css-validator/
+1. **Intended Outcome** - Favicon displayed in the browser tab.
+    * ***Issue Found:***
+        * When adding the image to the directory and linking it in the template HTML, nothing showed up on the deployed site.
+    * ***Causes:***
+        * There are some limitations with the CI template that prevents adding favicons in the way used in my previous projects
+    *  ***Solution Found:***
+        * By switching to using the URL of a web-hosted image, the favicon is displayed correctly.
 
-* CSS page has been tested, no issues found via URL or file upload.
+### **Remaining Bugs**
+At the time of submission no bugs remained in the app.
 
-![CSS Validator badge](https://jigsaw.w3.org/css-validator/images/vcss)
+## **Post Development Testing**
+### **Validators**
 
+#### ***HTML*** - https://validator.w3.org/nu/
 
-![CSS Validator](doc/screenshots/css-validator.png)
+* ***Issue Found:***
+    * The SVG file contained attributes written in non English language and hence the validator returned the below error: 
+![HTML Validator Error](docs/screenshots/html-validator-error.jpg)
 
-#### **JavaScript** - https://jshint.com/
+* ***Solution Used:***
+    * Placing the attribute, 'lang="ca"' in the div containing the background image fixed this.
 
-* JSHINT pages has been tested no issues have been found.
+#### ***CSS*** - https://jigsaw.w3.org/css-validator/
 
-  
-Script JavaScript JSHINT: 
-![JSHINT Script](doc/screenshots/script-jshint.png)
+* The page was tested by passing the URL to the validator, with no issues found.  
+![CSS Validator Badge](https://jigsaw.w3.org/css-validator/images/vcss)  
 
+#### ***Python:*** - [PEP8ci]https://pep8ci.herokuapp.com/#
+* Due to the downfall of PEP8 online all testing for PEP8 was done by Code institutes hand crafted version of PEP8 whichreturned no errors.
+(doc/screenshots/pep8-linter.webp)
 
-Quiz Questions JSHINT:
-![JSHINT Questions](doc/screenshots/quiz-questions-jshint.png)
-
-
-### **Lighthouse Scoring**
-
-### **Testing Conditions:**
-* I have ran tests for the quiz the on mobile and desktop and with different brand devices to see if there are any issues.
-* I have asked a small group of people to run lighthouse tests from their own devices. all have no issues via deskstop only mobile is slightly underperforming at 86% 
-
-#### **Desktop Version:**
-* No issues with desktop lighthouse score all performing above 90%.
-![Desktop Lighthouse Score](doc/screenshots/desktop-lighthouse-score.png)
-
-
-**Maintaining the score:**
-
-#### **Mobile Version:**
-* The only main issue withthe mobile scoring is that origanlly it scored 81.
-* Due to it being a JPEG file or either a PNG file.
-* But converting the JPEG file to a PNG file did help increase the score from 81 to 86. 
-* But overall the quiz is fully fucntion with no issues except rendering and imagery. 
-
-![Mobile Lighthouse Score](doc/screenshots/mobile-lighthouse-score.png)
-
-[Go back to README.md](README.md)
+[return to README.md](README.md)
