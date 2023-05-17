@@ -36,6 +36,7 @@
 ## **Project Planning**
 ### **Target Audiences:**
 * For users who are interesting in a playing short games.
+* For users who want to play a simple game of static rock paper scissors
 
 <!-->
 ### **Site Objectives:**
